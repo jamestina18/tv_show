@@ -15,7 +15,8 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path, include
-
+from app_TV import views
 urlpatterns = [
+    path('', views.index),
     path('shows/', include('app_TV.urls')),
 ]

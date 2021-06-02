@@ -10,17 +10,17 @@
      <title>TV Show</title>
 </head>
 <body>
-     <h1>Tv Show ID # {{ showid.id}}</h1>
+     <h1>Tv Show ID # {{ shows.id}}</h1>
      <h3>Title </h3>
-     <p>{{ showid.title }}</p>
+     <p>{{ shows.title }}</p>
      <h3>Channel </h3>
-     <p>{{ showid.channel }}</p>
+     <p>{{ shows.channel }}</p>
      <h3>Description </h3>
-     <p>{{ showid.description }}</p>
+     <p>{{ shows.description }}</p>
      <h3>Release Date </h3>
-     <p>{{ showid.release_date|date:"SHORT_DATE_FORMAT" }}</p>
-     <h4>Last Updated: <p>{{ showid.updated_at }}</p></h4>
+     <p>{{ shows.release_date|date:"SHORT_DATE_FORMAT" }}</p>
+     <h4>Last Updated: <p>{{ shows.updated_at }}</p></h4>
 </body>
-<a href="/shows/{{ showid.id}}/edit">Edit</a> |
-<a href="/shows/{{ showid.id}}/delete">Delete</a>
+<a href="/shows/{{ shows.id}}/edit">Edit</a> |
+<a href="/shows/{{ shows.id}}/delete">Delete</a>
 </html>

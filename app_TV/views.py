@@ -22,13 +22,14 @@ def create(request):
 
 def edit(request, show_id):
      #query for one show only using id and edit 
-     one_show = Show.objects.get(id = show_id)
+     one_show = Show.objects.get(id=show_id)
      context = {
           'shows': one_show
      }
      return render(request, 'edit.html', context)
+
 def update(request, show_id):
-     update = Show.object.get(id = show_id)
+     update = Show.objects.get(id=show_id)  
      #update all fields
      update.title = request.POST['title']
      update.release_date = request.POST['release_date']
@@ -37,16 +38,16 @@ def update(request, show_id):
      update.save()
      return redirect('/shows/')
 
+def shows(request, show_id):
+     #query for one show only using id
+     one_show = Show.objects.get(id = show_id)
+     context = {
+          'shows': one_show
+     }
+     return render(request, 'showid.html', context)
+
 def delete(request, show_id):
      #query for one show only using id
      delete_one = Show.objects.get(id = show_id)
      delete_one.delete()
      return redirect('/shows')
-
-def showid(request, show_id):
-     #query for one show only using id
-     one_show = Show.objects.get(id = show_id)
-     context = {
-          'showid': one_show
-     }
-     return render(request, 'showid.html', context)
