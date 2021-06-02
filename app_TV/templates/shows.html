@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+     {% load static %}
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+     <title>TV Show Homepage</title>
+</head>
+<body>
+     <h1>Homepage</h1>
+     <h2>All Shows</h2>
+     <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Channel</th>
+              <th scope="col">Release Date</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for show in shows  %}
+            <tr>
+               <td>{{ show.id }}</td>
+               <td>{{ show.title }}</td>
+               <td>{{ show.channel }}</td>
+               <td>{{ show.release_date|date:"SHORT_DATE_FORMAT" }}</td>
+               <td>
+                    <a href="/shows/{{ show.id }}">Show</a> | 
+                    <a href="/shows/{{ show.id }}/edit">Edit</a> |  
+                    <a href="/shows/{{ show.id }}/delete">Delete</a>
+               </td>
+
+             </tr>
+            {% endfor %}
+          </tbody>
+          <a href="/shows/new">Add a Show!</a>
+        </table>
+</body>
+</html>
